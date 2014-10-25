@@ -29,16 +29,14 @@ class FileSystem(systemPath: String) {
     } else (new File(filePattern), "(.*)")
   }
 
-  private def isFile(file: File, wildCard: String): Boolean = (file.isFile() && file.getName().matches(wildCard))
+  private def isFile(file: File, wildCard: String): Boolean = (file.exists && file.isFile() && file.getName().matches(wildCard))
 
   private def buildFileList(file: File, wildCard: String): List[File] = {
-    if (file.exists()) {
-      if (file.isDirectory())
-        file.listFiles()
-          .foldLeft(List[File]())((acc, f) => buildFileList(f, wildCard) ::: acc)
-      else if (isFile(file, wildCard)) List(file)
-      else Nil
-    } else throw new FileSystemException("File not found: " + file.getCanonicalPath)
+    if (file.exists && file.isDirectory)
+      file.listFiles()
+        .foldLeft(List[File]())((acc, f) => buildFileList(f, wildCard) ::: acc)
+    else if (isFile(file, wildCard)) List(file)
+    else throw new FileSystemException("File not found: " + file.getCanonicalPath)
   }
 
   /**
