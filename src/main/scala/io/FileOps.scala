@@ -3,9 +3,7 @@ package io
 import java.io.FileNotFoundException
 import java.io.IOException
 
-import scala.annotation.tailrec
 import scala.io.Source
-import scala.util.matching.Regex
 import scala.language.implicitConversions
 
 class FileOpsException(msg: String) extends Exception(msg)
@@ -16,7 +14,7 @@ class FileOpsException(msg: String) extends Exception(msg)
  */
 trait FileOps {
 
-	implicit def fileToPath(file: java.io.File): String = file.getCanonicalPath()
+  implicit def fileToPath(file: java.io.File): String = file.getCanonicalPath()
 
   /**
    * @param file 	java.io.File to open and readlines
@@ -32,5 +30,9 @@ trait FileOps {
         throw new FileOpsException("Some weird shit happened while trying to open: " + file)
     }
   }
+
+  /* This function slows down string processing considerably*/
+  private def trim(s: String): String =
+    s.replaceAll("(^\\s*\\t*\\r*)|(\\s*\\t*\\r*$)|(\\s*\\t*\\r*//.*$)|(\\s*\\t*\\r*#.*$)", "")
 
 }
