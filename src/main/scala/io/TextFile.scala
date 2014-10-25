@@ -21,9 +21,9 @@ class TextFile[A](filename: java.io.File, newline: Regex, comment: Regex) extend
   def this(filename: String, newLine: Regex, comment: Regex) = this(new java.io.File(filename), newLine, comment)
 
   /**
-   * Will generate ThrowAwayIterator[List[String]]
-   *
    * Overload method to handle no function passing to getLines.
+   *
+   * @return List[String]
    */
   def getLines(): List[String] = this.getLines[String]((s) => s)
 
