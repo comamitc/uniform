@@ -17,18 +17,16 @@ class FileSystem(systemPath: String) {
   /**
    * 	Reassemble the path splits into a normailzed path considering that the input is reversed
    */
-  private def assemblePath(paths: List[String]): String = {
+  private def assemblePath(paths: Array[String]): String = {
     if (paths.isEmpty || paths.head.isEmpty) "./"
     else paths.foldLeft("")((acc, seg) => seg + '/' + acc)
   }
 
-  private def normalizeFilePattern(filePattern: String): (File, String) = filePattern.contains(WILD) match {
-    case true => filePattern.split(SPLIT_COND).toList.reverse match {
-      case head :: Nil => (new File("./"), assembleWildCard(head))
-      case head :: tail => (new File(assemblePath(tail)), assembleWildCard(head))
-      case _ => throw new FileSystemException("FileHelper encountered unknown state")
-    }
-    case false => (new File(filePattern), "(.*)")
+  private def normalizeFilePattern(filePattern: String): (File, String) = {
+    if (filePattern.contains(WILD)) {
+      val paths = filePattern.split(SPLIT_COND)
+      (new File(assemblePath(paths.init)), assembleWildCard(paths.last))
+    } else (new File(filePattern), "(.*)")
   }
 
   private def isFile(file: File, wildCard: String): Boolean = (file.isFile() && file.getName().matches(wildCard))
