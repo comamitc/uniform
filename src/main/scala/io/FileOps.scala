@@ -32,7 +32,7 @@ trait FileOps {
   }
 
   /* This function slows down string processing considerably*/
-  private def trim(s: String): String =
+  def trim(s: String): String =
     s.replaceAll("(^\\s*\\t*\\r*)|(\\s*\\t*\\r*$)|(\\s*\\t*\\r*//.*$)|(\\s*\\t*\\r*#.*$)", "")
 
 }
