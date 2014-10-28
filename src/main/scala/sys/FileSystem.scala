@@ -23,7 +23,7 @@ class FileSystem(systemPath: String) {
    */
   private def assemblePath(paths: Array[String]): String = {
     if (paths.isEmpty || paths.head.isEmpty) "./"
-    else paths.foldLeft("")((acc, seg) => seg + '/' + acc)
+    else paths.foldLeft("")((acc, seg) => acc + seg + "/")
   }
 
   private def normalizeFilePattern(filePattern: String): (File, String) = {
@@ -34,7 +34,8 @@ class FileSystem(systemPath: String) {
   }
 
   /* helper function to check file match */
-  private def isFile(file: File, wildCard: String): Boolean = (file.isFile() && file.getName().matches(wildCard))
+  private def isFile(file: File, wildCard: String): Boolean =
+      (file.isFile() && file.getName.matches(wildCard))
 
   /**
    * Using a pattern and wildcard, file all cooresponding file definitions in location
@@ -43,7 +44,7 @@ class FileSystem(systemPath: String) {
     case true => {
       if (file.isDirectory) file.listFiles().foldLeft(List[File]())((acc, f) => buildFileList(f, wildCard) ::: acc)
       else if (isFile(file, wildCard)) List(file)
-      else throw new FileSystemException("FileSystem encountered bad state.")
+      else Nil
     }
     case false => throw new FileSystemException("File not found: " + file.getCanonicalPath)
   }
