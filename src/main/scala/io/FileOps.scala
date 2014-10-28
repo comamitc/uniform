@@ -14,7 +14,7 @@ class FileOpsException(msg: String) extends Exception(msg)
  */
 trait FileOps {
 
-  implicit def fileToPath(file: java.io.File): String = file.getCanonicalPath()
+  private implicit def fileToPath(file: java.io.File): String = file.getCanonicalPath()
 
   /**
    * @param file 	java.io.File to open and readlines

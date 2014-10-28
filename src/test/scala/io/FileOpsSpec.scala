@@ -15,9 +15,20 @@ class FileOpsSpec extends FunSuite with Matchers {
     fo shouldBe a [Source]
   }
 
+  test("FileOps#trim(	hi  ) should be 'hi'") {
+  	val fo = new FileOpsExt()
+  	fo.trim("	hi  ") should be ("hi")
+  }
+
   test("Fileops should throw FileNotFound when file doesn't exist") {
   	intercept[FileOpsException] {
       new FileOpsExt().open(new File("./road/to/nowhere.log"))
+    }
+  }
+
+  test("FileOpsException should throw base Exception") {
+  	intercept[Exception] {
+      throw new FileOpsException("uh-oh")
     }
   }
   

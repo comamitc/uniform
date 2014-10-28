@@ -7,8 +7,8 @@ case class FileSystemException(msg: String) extends Exception(msg)
 
 class FileSystem(systemPath: String) {
 
-  val WILD = '*'
-  val SPLIT_COND = Array('\\', '/')
+  private val WILD = '*'
+  private val SPLIT_COND = Array('\\', '/')
 
   /**
    *  Replace wildcard symbol `*` with well formed Regex for `String#matches` operation
