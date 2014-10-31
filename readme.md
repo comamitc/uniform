@@ -18,4 +18,5 @@ Processor.processFiles("./*.log", returnSelf)
 #Testing
 
 test-coverage: 79.8%
+
 pass-rate: 100%
