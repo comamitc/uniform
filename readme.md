@@ -5,7 +5,7 @@ uniform is a plain text file processing library written in scala making file dat
 #Basic Use
 ```scala
 
-import interface.Processor
+import uniform.interface.Processor
 
 // Don't manipulate the log lines
 def returnSelf(str: String) = str

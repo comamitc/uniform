@@ -1,4 +1,4 @@
-package sys
+package uniform.sys
 
 import org.scalatest._
 

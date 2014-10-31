@@ -1,4 +1,4 @@
-package io
+package uniform.io
 
 import org.scalatest._
 

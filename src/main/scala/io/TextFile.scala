@@ -1,4 +1,4 @@
-package io
+package uniform.io
 
 import scala.annotation.tailrec
 import scala.util.matching.Regex

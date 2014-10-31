@@ -1,4 +1,4 @@
-package io
+package uniform.io
 
 import java.io.FileNotFoundException
 import java.io.IOException

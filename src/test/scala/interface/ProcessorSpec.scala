@@ -1,4 +1,4 @@
-package interface
+package uniform.interface
 
 import org.scalatest._
 

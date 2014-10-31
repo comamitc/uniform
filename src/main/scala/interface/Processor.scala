@@ -1,7 +1,7 @@
-package interface
+package uniform.interface
 
-import io.TextFile
-import sys.FileSystem
+import uniform.io.TextFile
+import uniform.sys.FileSystem
 
 object Processor {
 
