@@ -1,0 +1,12 @@
+2013-04-03 14:20:53,009  INFO [main] (com.prosrm.service.spring.ServiceManagerProcess) - ServiceManagerProcess starting...
+2013-04-03 14:20:53,094  INFO [main] (org.springframework.context.support.AbstractApplicationContext) - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@5705b99f: startup date [Wed Apr 03 14:20:53 CDT 2013]; root of context hierarchy
+2013-04-03 14:20:53,220  INFO [main] (org.springframework.beans.factory.xml.XmlBeanDefinitionReader) - Loading XML bean definitions from file [C:\PROS\PPSS_ECOLAB\build\.\config\service\tomcat-context.xml]
+2013-04-03 14:20:54,189  INFO [main] (org.springframework.beans.factory.support.DefaultListableBeanFactory) - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4cedf389: defining beans [systemPropertyConfigurer,serviceManager,tomcatService,tomcatServiceImpl,pdkQuartzConfigAdjuster,quartzSchedulerInitializer]; root of factory hierarchy
+2013-04-03 14:20:54,886  INFO [main] (com.prosrm.common.DBConnectionManager) - Connection pooling properties:
+   Time between sweeps of connection pool by connection reaper: 300 secs
+   Maximum time connection will remain idle in pool: 120 secs
+   Maximum time connections will considered valid: 1800 secs
+   Time between re-validations of connections in pool: -1 secs
+   Database type: sqlserver
+   JDBC driver log file: null
+   Tracing enabled: false
