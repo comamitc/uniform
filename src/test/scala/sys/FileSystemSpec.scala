@@ -6,12 +6,14 @@ class FileSystemSpec extends FunSuite with Matchers {
 
   test("FileSystem#listFiles(./test_files) should find 2 files") {
     val fs = new FileSystem("./test_files")
-    fs.listFiles.size should be(2)
+    fs.listFiles.size should be(3)
   }
 
   test("FileSystem#listFiles(./test_files/*.log) should find 1 file") {
     val fs = new FileSystem("./test_files/*.log")
-    fs.listFiles.size should be(1)
+    val files = fs.listFiles
+    println(files)
+    files.size should be(2)
   }
 
   test("FileSystem#listFiles should throw exception with invalid path") {
