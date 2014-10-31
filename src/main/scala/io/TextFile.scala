@@ -8,12 +8,12 @@ class TextFile[A](filename: java.io.File, newline: Regex, comment: Regex) extend
   /** Private value that extracts `\?n` delimited lines from a file. */
   val ctx: Iterator[String] = this.open(filename).getLines
 
-  def this(filename: java.io.File) = this(filename, "(^[\\w]+.*[:=].*$)".r, "(^[#|//].*)".r)
+  def this(filename: java.io.File) = this(filename, "(^[\\w]+.*$)".r, "(^[#|//].*)".r)
 
   def this(filename: java.io.File, newline: Regex) = this(filename, newline, "(^[#|//].*)".r)
 
   /** auxiliary constructor when only supplying a filename: String */
-  def this(filename: String) = this(new java.io.File(filename), "(^[\\w]+.*[:=].*$)".r, "(^[#|//].*)".r)
+  def this(filename: String) = this(new java.io.File(filename), "(^[\\w]+.*$)".r, "(^[#|//].*)".r)
 
   /** auxiliary constructor when only supplying a filename: String, newline: Regex */
   def this(filename: String, newline: Regex) = this(new java.io.File(filename), newline, "(^[#|//].*)".r)

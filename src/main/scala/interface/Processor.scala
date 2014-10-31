@@ -2,11 +2,12 @@ package uniform.interface
 
 import uniform.io.TextFile
 import uniform.sys.FileSystem
+import uniform.config.UniformConfig
 
 object Processor {
 
-  private val newLine = "(^\\d{4}-\\d{2}-\\d{2}[ T]\\d{2}:\\d{2}:\\d{2}.*)".r
-  private val ignoreLine = "(^\\s*\\t*\\r*)".r
+  private val newLine = UniformConfig.get("new_line").r
+  private val ignoreLine = UniformConfig.get("ignore_line").r
 
   def processFiles[A](systemPath: String, lineFunction: String => A): List[A] = {
     new FileSystem(systemPath)
