@@ -2,7 +2,7 @@ uniform
 ====
 uniform is a plain text file processing library written in scala making file data collection trivial.
 
-#Configuration
+##Configuration
 
 uniform accepts two configuration parameters that help the tool narrow in on the log line format and ignore lines.
 
@@ -13,7 +13,7 @@ ignore_line=(^\\s*\\t*\\r*)
 ```
 
 
-#Basic Use
+##Basic Use
 ```scala
 
 import uniform.interface.Processor
@@ -26,7 +26,7 @@ Processor.processFiles("./*.log", returnSelf)
 
 ```
 
-#Testing
+##Testing
 
 [info] [scoverage] All done. Coverage was [77.60%]
 
